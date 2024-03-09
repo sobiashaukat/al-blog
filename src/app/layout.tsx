@@ -1,12 +1,9 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from '@/components/header'
-import { Toaster } from "@/components/ui/sonner"
-import {ClerkProvider} from '@clerk/nextjs'
-
-
-
+import Header from "@/components/header";
+import { Toaster } from "@/components/ui/sonner";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,19 +19,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <ClerkProvider>
-      <body className={inter.className}>
-        <Header />
-        <main>
-        {children}
-
-        </main>
-        <Toaster position='top-right' theme='light' richColors />
-
-        
+        <body className={inter.className}>
+          <Header />
+          <main>{children}</main>
+          <Toaster position="top-right" theme="light" richColors />
         </body>
-        </ClerkProvider>
+      </ClerkProvider>
     </html>
   );
 }
